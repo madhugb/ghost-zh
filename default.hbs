@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{! Document Settings }}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{! Page Meta }}
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    
+    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+
+    {{! Styles'n'Scripts }}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+
+    {{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+    <div class="container">
+        {{! The header on the homepage}}
+        <header class="site-head" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
+            <div class="vertical">
+                <div class="site-head-content inner">
+                    <div class="top">
+                        <h1><a href="/">{{@blog.title}}</a> : <a id="tagline" href="/">Blog</a></h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        {{! Everything else gets inserted here }}
+
+        {{{body}}}
+
+        <footer class="site-footer">
+            <div class="footer">
+               <a href="http://madhugb.com/">About me</a> ::                                   
+               <a class="subscribe icon-feed" href="{{@blog.url}}/rss/"><span class="tooltip">Subscribe!</span></a> 
+               <br>
+               <p >All content copyright <a href="{{@blog.url}}/">{{@blog.title}}</a> &copy; {{date format="YYYY"}} <br>All rights reserved.</p> 
+            
+            </div>
+        </footer>
+    </div>
+    {{! Ghost outputs important scripts and data with this tag }}
+    {{ghost_foot}}
+
+    {{! The main JavaScript file for Casper }}
+    <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
+
+</body>
+</html>

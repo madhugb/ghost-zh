@@ -1,4 +1,4 @@
-ghost-zh
-========
+# Ghost Zenhabit 
 
-Ghost theme inspired by Zenhabit.net
+Under development
+
