@@ -1,0 +1,49 @@
+{{!< default}}
+
+{{! The main content area on the homepage }}
+<main class="content" role="main">
+
+    <header class="tag-archive-header">
+        <h1>Category - {{tag.name}}</h1>
+    </header>
+
+    {{! Each post will be output using this markup }}
+    {{#foreach posts}}
+        <article class="{{post_class}}">
+            <header class="post-header">                
+                <h3><a href="{{url}}">{{{title}}}</a></h3>
+            </header>
+            <section class="post">
+                <p>{{excerpt}}&hellip;</p>
+                <div style="padding-top:20px;padding-bottom:20px;">
+                  <div style="float:right;">
+                    <div>On {{date format="DD MMM YYYY"}}</div>
+                    <div>Tags {{tags}} </div>
+                  </div>
+                  <div style="float-left">
+                    <div>
+                      <div style="display:inline-block;text-align:center;">
+                        <a onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;" href="javascript:void(0)">
+                        <img width="16" height="16" src="{{asset "images/social_facebook.png"}}">
+                        <span class="count" style="font-size:15px;">Share</span>
+                        </a>
+                      </div> |
+                        
+                      <div style="display:inline-block;text-align:center;">
+                         <a onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&amp;url='+encodeURIComponent(location.href)+'&amp;via=madospace','twitter-share-dialog','width=626,height=436');return false;" href="javascript:void(0)">
+                        <img width="16" height="16" src="{{asset "images/social_twitter.png"}}">
+                        <span class="count" style="font-size:15px;">Tweet</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+        </article>
+        <hr>
+    {{/foreach}}
+
+    {{!! After all the posts, we have the previous/next pagination links }}
+    {{pagination}}
+
+</main>
