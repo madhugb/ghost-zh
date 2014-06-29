@@ -1,4 +1,3 @@
 # Ghost Zenhabit 
 
-Under development
-
+Zenhabit theme for Ghost blogs
